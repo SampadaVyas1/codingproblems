@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function createList(value) {
+        const head = {
+          value: value,
+          next: null,
+        };
+        let tail = head;
+        return {
+          List: {
+            head,
+            tail,
+          },
+        };
+      }
+      const { List } = createList(20);
+      function createLinkList(value) {
+        let newNode = {
+          value: value,
+          next: null,
+        };
+        List.tail.next = newNode;
+        List.tail = newNode;
+      }
+      createLinkList(23);
+      createLinkList(3);
+      createLinkList(233);
+      function traverseaLinkedList() {
+        var node = List.head;
+        var count = 0;
+
+        while (node.next !== null) {
+          //   console.log(node);
+          node = node.next;
+          count++;
+        }
+        // console.log(node);
+      }
+      traverseaLinkedList();
+
+      function deleteNode(position) {
+        let node = List.head;
+        let count = 1;
+        if (position == 1) {
+          List.head = List.head.next;
+        } else {
+          while (count < position - 1) {
+            node = node.next;
+            count++;
+          }
+          node.next = node.next.next;
+        }
+      }
+      //   deleteNode(4);
+      function insertNode(value, position) {
+        let count = 1;
+        let newNode = {
+          value: value,
+          next: null,
+        };
+        let nextelement = List.head;
+        if (position == 1) {
+          List.head = newNode;
+          newNode.next = nextelement.next;
+        } else {
+          while (count < position - 1) {
+            nextelement = nextelement.next;
+            count++;
+          }
+          console.log(nextelement);
+          const add = nextelement.next.next;
+          nextelement.next = {
+            value: value,
+            next: add,
+          };
+        }
+      }
+      // insertNode(122, 3);
+
+      // function searchNode(value) {
+      //   let leadNode = List.head;
+      //   while (leadNode.value !== value) {
+      //     leadNode = leadNode.next;
+      //   }
+      //   if (leadNode.value === value) {
+      //     return leadNode;
+      //   }
+      // }
+      // searchNode(122);
+
+      console.log(List);
+    </script>
+  </head>
+  <body>
+    Linked List
+  </body>
+</html>

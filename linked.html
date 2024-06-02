@@ -1,0 +1,196 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      class List {
+        constructor(data) {
+          this.head = {
+            value: data,
+            next: null,
+          };
+          this.tail = this.head;
+        }
+        appendNode(nodeData) {
+          const newNode = {
+            value: nodeData,
+            next: null,
+          };
+          this.tail.next = newNode;
+          this.tail = newNode;
+        }
+      }
+      let list = new List(200);
+      list.appendNode(500);
+      list.appendNode(800);
+      console.log(list);
+    </script>
+  </head>
+  <body></body>
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function createNode(data) {
+        const head = {
+          value: data,
+          next: null,
+        };
+        this.tail = head;
+        return { List: { head: head, tail: tail } };
+      }
+      function appendNode(List, data) {
+        const newNode = {
+          value: data,
+          next: null,
+        };
+       
+        List.tail.next = newNode;
+        List.tail = newNode;
+      }
+
+      var { List } = createNode(200);
+      appendNode(List, 400);
+      appendNode(List, 700);
+      console.log(List);
+    </script>
+  </head>
+  <body></body>
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function createNode(data) {
+        const head = {
+          value: data,
+          next: null,
+        };
+        this.tail = head;
+        return { List: { head: head, tail: tail } };
+      }
+      function appendNode(List, data) {
+        const newNode = {
+          value: data,
+          next: null,
+        };
+
+        List.tail.next = newNode;
+        List.tail = newNode;
+      }
+
+      var { List } = createNode(200);
+      appendNode(List, 400);
+      appendNode(List, 700);
+      appendNode(List, 1700);
+
+      let obj = List.head;
+      let count = 0;
+      while (obj.next !== null) {
+        console.log(obj);
+        obj = obj.next;
+        count++;
+      }
+      if (obj.next === null) {
+        console.log(obj);
+      }
+      // console.log(List, count);
+    </script>
+  </head>
+  <body></body>
+</html>-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function list(data) {
+        const head = {
+          value: data,
+          next: null,
+        };
+        this.tail = head;
+        return (listObj = { head, tail });
+      }
+      var listObj = list(200);
+      function appendNode(nodeData) {
+        const newObj = { value: nodeData, next: null };
+        this.tail.next = newObj;
+        this.tail = newObj;
+      }
+      appendNode(688);
+      appendNode(90);
+      appendNode(190);
+      appendNode(10);
+
+      function traverse() {
+        let val = listObj.head;
+        // console.log(val);
+        while (val.next !== null) {
+          val = val.next;
+          // console.log(val);
+        }
+      }
+
+      function deletNode(index) {
+        let count = 1;
+        let lead = listObj.head;
+        if (index === 1) {
+          lead = lead.next;
+        } else {
+          while (count < index - 1) {
+            lead = lead.next;
+            count++;
+          }
+          lead.next = lead.next.next;
+        }
+      }
+
+      function insertNode(position, value) {
+        let count = 1;
+        const newNode = {
+          value: value,
+          next: null,
+        };
+        let temp = listObj.head;
+
+        if (position == 1) {yeu
+          listObj.head = {
+            value: value,
+            next: temp,
+          };
+        } else {
+          while (count < position - 1) {
+            temp = temp.next;
+            count++;
+          }
+          let tempvalue = temp.next;
+          temp.next = {
+            value: value,
+            next: tempvalue,
+          };
+        }
+      }
+
+      insertNode(5, 4000);
+      // deletNode(3);
+      console.log(listObj);
+      traverse();
+    </script>
+  </head>
+  <body></body>
+</html>
